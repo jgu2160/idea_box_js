@@ -28,20 +28,24 @@ if(window.location.pathname === '/') {
   function hideIdeas(userInput) {
     var re = new RegExp(userInput);
     h3s = $("h3");
-    ps = $("p");
+    ps = $("div > p");
+
     $.each(h3s, function(key, value) {
-      console.log(value);
       if (!re.test(value.innerHTML)) {
         ideaId = value.className;
-        $("." + ideaId).hide();
+        $("#idea-" + ideaId).hide();
       }
     });
 
-    //$.each(ps, function(key, value) {
-      //if (!re.test(value.val())) {
-        //ideaId = value.attr("class");
-        //$("." + ideaId).hide();
-      //};
+    $.each(ps, function(key, value) {
+      console.log(value);
+      if (re.test(value.innerHTML)) {
+        console.log(value.innerHTML);
+        ideaId = value.className;
+        $("#idea-" + ideaId).show();
+      }
+    });
+
     }
 
     function makeIdeas() {
@@ -61,7 +65,7 @@ if(window.location.pathname === '/') {
       return '<h3 class="' + idea.id + '">' + idea.title + '</h3>'
       + '<p class="'+ idea.id + '">' + idea.body + '</p>'
       + '<div>'
-      + '<p>' + QUALITIES[idea.quality] + '</p>'
+      + '<div>' + QUALITIES[idea.quality] + '</div>'
       + '<button type="button" class="btn glyphicon glyphicon-thumbs-up" id="idea-upgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality + 1) + ')"></button>'
       + '<button type="button" class="btn glyphicon glyphicon-thumbs-down" id="idea-downgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality - 1) + ')"></button>'
       + '</div>'
@@ -70,7 +74,7 @@ if(window.location.pathname === '/') {
     }
 
     function widgetHTML(idea) {
-      return '<div id=idea-' + idea.id + ' class=idea "' + idea.id + '">' +
+      return '<div id=idea-' + idea.id + ' class="idea ' + idea.id + '">' +
         widgetBody(idea)
       + '</div>'
     }
