@@ -39,5 +39,6 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'teaspoon-mocha'
 end
 
