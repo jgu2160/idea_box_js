@@ -26,6 +26,7 @@ if(window.location.pathname === '/') {
   });
 
   function hideIdeas(userInput) {
+    $(".idea").show();
     var re = new RegExp(userInput);
     h3s = $("h3");
     ps = $("div > p");
@@ -64,8 +65,8 @@ if(window.location.pathname === '/') {
     + '<p class="'+ idea.id + '">' + idea.body + '</p>'
     + '<div>'
     + '<div>' + QUALITIES[idea.quality] + '</div>'
-    + '<button type="button" class="btn glyphicon glyphicon-thumbs-up" id="idea-upgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality + 1) + ')"></button>'
-    + '<button type="button" class="btn glyphicon glyphicon-thumbs-down" id="idea-downgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality - 1) + ')"></button>'
+    + '<button type="button" class="btn glyphicon glyphicon-thumbs-up blue" id="idea-upgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality + 1) + ')"></button>'
+    + '<button type="button" class="btn glyphicon glyphicon-thumbs-down blue" id="idea-downgrade-' + idea.id + '" onclick="gradeIdea(' + idea.id + ',' + (idea.quality - 1) + ')"></button>'
     + '</div>'
     + '<button type="button" class="btn btn-success" id="idea-edit-' + idea.id + '" onclick="editIdea(' + idea.id + ')">Edit</button>'
     + '<button type="button" class="btn btn-danger" id="idea-delete-' + idea.id + '" onclick="deleteIdea(' + idea.id +  ')">Delete</button>'
