@@ -5,7 +5,6 @@
 //= require support/chai
 // require support/chai-jq-0.0.7
 // require support/your-support-file
-//
 // PhantomJS (Teaspoons default driver) doesn't have support for Function.prototype.bind, which has caused confusion.
 // Use this polyfill to avoid the confusion.
 //= require support/bind-poly
