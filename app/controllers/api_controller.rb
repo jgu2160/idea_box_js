@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
   def all
-    render json: Idea.all
+    render json: Idea.order(updated_at: :desc)
   end
 
   def grade

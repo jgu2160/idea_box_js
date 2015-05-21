@@ -11,7 +11,13 @@ class IdeasController < ApplicationController
   end
 
   def update
-    render json: Idea.upda
+    @idea = Idea.find(params[:id])
+    @idea.update(idea_params)
+    redirect_to root_path
+  end
+
+  def edit
+    @idea = Idea.find(params[:id])
   end
 
   private
